@@ -1,0 +1,15 @@
+- name: Resrart OracleDb Exporters
+  hosts: {{ host }}
+  tasks:
+     - name: Restart Exporters
+       script: {{ stop_sh }} && {{ start_sh }}
+       tags:
+         - restart
+     - name: Start Exporters
+       script: {{ start_sh }}
+       tags:
+         - start
+     - name: Stop Exporters
+       script: {{ stop_sh }}
+       tags:
+         - stop
